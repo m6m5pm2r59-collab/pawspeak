@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pawspeak-v1';
+const CACHE_NAME = 'pawlang-v1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',

@@ -2,6 +2,13 @@
    PawLang – 核心交互逻辑
    ============================================ */
 
+// 注册 Service Worker（PWA 可安装的前提）
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+
 const chatArea = document.getElementById('chat-area');
 const messageInput = document.getElementById('message-input');
 const sendBtn = document.getElementById('send-btn');
