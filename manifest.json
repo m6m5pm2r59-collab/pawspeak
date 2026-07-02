@@ -3,7 +3,7 @@
   "short_name": "PawLang",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#141410",
+  "background_color": "#faf7f2",
   "theme_color": "#f59e0b",
   "description": "PawLang - AI 宠物行为解读",
   "orientation": "portrait-primary",

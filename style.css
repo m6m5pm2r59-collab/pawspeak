@@ -5,15 +5,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg-primary: #141410;
-  --bg-card: #1e1e18;
-  --bg-input: #282820;
-  --border: #3a3a30;
-  --text-primary: #e8e8e0;
-  --text-secondary: #888880;
+  --bg-primary: #faf7f2;
+  --bg-card: #ffffff;
+  --bg-input: #f5f0e8;
+  --border: #e8e0d0;
+  --text-primary: #1a1a16;
+  --text-secondary: #8a8578;
   --accent: #f59e0b;
-  --accent-light: #fbbf24;
-  --accent-dim: rgba(245, 158, 11, 0.12);
+  --accent-light: #d97706;
+  --accent-dim: rgba(245, 158, 11, 0.08);
   --radius: 8px;
   --radius-lg: 12px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -189,7 +189,7 @@ body {
 }
 
 .message-input:focus { border-color: var(--accent); }
-.message-input::placeholder { color: #555550; }
+.message-input::placeholder { color: #b5b0a5; }
 
 .send-btn {
   width: 44px;
@@ -197,7 +197,7 @@ body {
   border-radius: var(--radius);
   border: none;
   background: var(--accent);
-  color: #141410;
+  color: #1a1a16;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -218,7 +218,7 @@ body {
   color: var(--text-secondary);
 }
 
-.pricing-divider { margin: 0 6px; color: #555; }
+.pricing-divider { margin: 0 6px; color: #c5c0b5; }
 
 .pricing-pro { color: var(--accent-light); font-weight: 600; }
 
