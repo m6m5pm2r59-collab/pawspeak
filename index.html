@@ -2,159 +2,71 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#1a1a2e">
-  <meta name="description" content="集团周报系统 - 高效汇报，数据驱动">
-  <title>集团周报系统</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PawLang">
+  <meta name="theme-color" content="#f59e0b">
+  <meta name="description" content="PawLang，基于 AI 的宠物行为解读工具，帮你读懂毛孩子的每个动作">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/assets/icon-192.png">
+  <link rel="stylesheet" href="/style.css">
+  <title>PawLang - AI 宠物行为解读</title>
 </head>
 <body>
   <div class="app-container">
 
     <!-- Header -->
     <header class="app-header">
-      <span style="font-size:22px;">📊</span>
-      <h1 class="header-title">集团周报系统</h1>
+      <div class="header-content">
+        <div class="logo-area">
+          <div class="logo-text">
+            <h1>PawLang</h1>
+            <p class="subtitle">AI 宠物行为解读</p>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <!-- Login Section -->
-      <section id="login-section" class="section active">
-        <div class="login-card">
-          <div class="login-icon">📊</div>
-          <h2>部门登录</h2>
-          <p class="login-desc">请输入部门账号和密码</p>
-          <form id="login-form" onsubmit="handleLogin(event)">
-            <div class="form-group">
-              <label>部门账号</label>
-              <input type="text" id="dept-id" placeholder="如：HR-001" required autocomplete="username">
-            </div>
-            <div class="form-group">
-              <label>密码</label>
-              <input type="password" id="dept-pwd" placeholder="请输入密码" required autocomplete="current-password">
-            </div>
-            <button type="submit" class="btn-primary">登 录</button>
-          </form>
-          <div id="login-error" class="error-msg hidden"></div>
-          <div class="demo-hint">
-            <p>演示账号：DEPT-001 / 123456</p>
-          </div>
+    <!-- Chat Area -->
+    <main class="chat-area" id="chat-area">
+      <div class="chat-welcome">
+        <p class="welcome-title">你的宠物在想什么？</p>
+        <p class="welcome-desc">基于 500 万+宠物行为数据训练的 AI，帮你读懂它</p>
+        <div class="quick-prompts">
+          <button class="quick-prompt" data-prompt="猫咪为什么总盯着我上厕所？">猫咪为什么总盯着我上厕所？</button>
+          <button class="quick-prompt" data-prompt="狗狗追尾巴是焦虑吗？">狗狗追尾巴是焦虑吗？</button>
+          <button class="quick-prompt" data-prompt="猫半夜跑酷怎么纠正？">猫半夜跑酷怎么纠正？</button>
         </div>
-      </section>
-
-      <!-- Dashboard Section -->
-      <section id="dashboard-section" class="section">
-        <div class="dashboard-header">
-          <div class="dept-info">
-            <span class="dept-name" id="current-dept">--</span>
-            <span class="dept-role" id="current-role">--</span>
-          </div>
-          <button class="logout-btn" onclick="handleLogout()">退出</button>
-        </div>
-
-        <div class="dashboard-nav">
-          <button class="nav-tab active" data-tab="submit">提交周报</button>
-          <button class="nav-tab" data-tab="history">历史周报</button>
-          <button class="nav-tab" data-tab="overview" id="tab-overview" style="display:none">数据看板</button>
-          <button class="nav-tab" data-tab="admin" id="tab-admin" style="display:none">管理后台</button>
-        </div>
-
-        <!-- Submit Report -->
-        <div id="tab-submit" class="tab-content active">
-          <form id="report-form" onsubmit="handleSubmitReport(event)">
-            <div class="form-group">
-              <label>本周总结 <span class="required">*</span></label>
-              <textarea id="summary" rows="4" placeholder="请填写本周主要工作内容..." required></textarea>
-            </div>
-            <div class="form-group">
-              <label>关键数据 <span class="required">*</span></label>
-              <textarea id="metrics" rows="3" placeholder="如：新增用户 1200，转化率 3.2%..." required></textarea>
-            </div>
-            <div class="form-group">
-              <label>遇到的问题</label>
-              <textarea id="issues" rows="3" placeholder="本周遇到的主要问题（选填）"></textarea>
-            </div>
-            <div class="form-group">
-              <label>下周计划 <span class="required">*</span></label>
-              <textarea id="next-plan" rows="3" placeholder="下周主要工作安排..." required></textarea>
-            </div>
-            <button type="submit" class="btn-primary" id="submit-btn">提交周报</button>
-          </form>
-          <div id="submit-success" class="success-msg hidden">
-            <span class="success-icon">✅</span> 周报提交成功！
-          </div>
-        </div>
-
-        <!-- History -->
-        <div id="tab-history" class="tab-content">
-          <div id="history-list" class="history-list">
-            <div class="empty-state">暂无历史周报</div>
-          </div>
-        </div>
-
-        <!-- Overview (Manager+) -->
-        <div id="tab-overview" class="tab-content">
-          <div class="overview-grid">
-            <div class="stat-card">
-              <div class="stat-value" id="stat-total">0</div>
-              <div class="stat-label">本周提交</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value" id="stat-rate">0%</div>
-              <div class="stat-label">提交率</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value" id="stat-depts">0</div>
-              <div class="stat-label">活跃部门</div>
-            </div>
-          </div>
-          <div class="chart-area">
-            <h3>近4周趋势</h3>
-            <div class="mini-chart" id="mini-chart"></div>
-          </div>
-          <div class="dept-table-wrap">
-            <h3>各部门最新周报</h3>
-            <table class="dept-table" id="overview-table">
-              <thead><tr><th>部门</th><th>提交时间</th><th>状态</th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Admin -->
-        <div id="tab-admin" class="tab-content">
-          <div class="admin-section">
-            <h3>部门管理</h3>
-            <form id="add-dept-form" onsubmit="handleAddDept(event)">
-              <div class="form-row">
-                <input type="text" id="new-dept-id" placeholder="部门ID" required>
-                <input type="text" id="new-dept-name" placeholder="部门名称" required>
-                <select id="new-dept-role">
-                  <option value="member">普通成员</option>
-                  <option value="manager">部门经理</option>
-                  <option value="admin">管理员</option>
-                </select>
-                <button type="submit" class="btn-sm">添加</button>
-              </div>
-            </form>
-            <table class="dept-table" id="admin-dept-table">
-              <thead><tr><th>部门ID</th><th>名称</th><th>角色</th><th>操作</th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </div>
-          <div class="admin-section">
-            <h3>所有周报数据</h3>
-            <table class="dept-table" id="admin-report-table">
-              <thead><tr><th>部门</th><th>时间</th><th>总结</th><th>操作</th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
+
+    <!-- Input Area -->
+    <footer class="input-area">
+      <div class="input-container">
+        <input
+          type="text"
+          id="message-input"
+          class="message-input"
+          placeholder="描述宠物的行为，比如：猫半夜跑酷..."
+          autocomplete="off"
+          enterkeyhint="send"
+        >
+        <button id="send-btn" class="send-btn" aria-label="发送">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="pricing-bar">
+        <span>免费 10 次/天</span>
+        <span class="pricing-divider">·</span>
+        <span class="pricing-pro">无限对话 $2.99/月</span>
+      </div>
+    </footer>
+
   </div>
 
-  <script src="app.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>
