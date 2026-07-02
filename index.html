@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PawSpeak">
+  <meta name="theme-color" content="#7c3aed">
+  <meta name="description" content="PawSpeak - 读懂它，不再靠猜。AI 宠物行为解读，与你的毛孩子更亲密。">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/assets/icon-192.png">
+  <link rel="stylesheet" href="/style.css">
+  <title>PawSpeak - 宠物对话</title>
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <div class="logo-area">
+          <span class="logo-icon">🐾</span>
+          <div class="logo-text">
+            <h1>PawSpeak</h1>
+            <p class="subtitle">读懂它，不再靠猜</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Add to Home Screen Banner -->
+    <div id="a2hs-banner" class="a2hs-banner hidden">
+      <div class="a2hs-content">
+        <span class="a2hs-icon">📲</span>
+        <span class="a2hs-text">添加到主屏幕，随时打开</span>
+        <button id="a2hs-dismiss" class="a2hs-dismiss" aria-label="关闭">✕</button>
+      </div>
+    </div>
+
+    <!-- Chat Area -->
+    <main class="chat-area" id="chat-area">
+      <div class="chat-welcome">
+        <div class="welcome-icon">🐾</div>
+        <p class="welcome-title">Hi，我是 PawSpeak</p>
+        <p class="welcome-desc">告诉我你毛孩子的奇怪行为，我来帮你解读～</p>
+        <div class="quick-prompts">
+          <button class="quick-prompt" data-prompt="我家猫总是盯着我上厕所，为什么？">🐱 猫咪盯我上厕所？</button>
+          <button class="quick-prompt" data-prompt="狗狗为什么老是追自己的尾巴？">🐶 狗狗追尾巴？</button>
+          <button class="quick-prompt" data-prompt="猫半夜跑酷是天性吗？">🐱 猫咪半夜跑酷？</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Input Area -->
+    <footer class="input-area">
+      <div class="input-container">
+        <input
+          type="text"
+          id="message-input"
+          class="message-input"
+          placeholder="描述宠物的行为..."
+          autocomplete="off"
+          enterkeyhint="send"
+        >
+        <button id="mic-btn" class="mic-btn" aria-label="语音输入">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </button>
+        <button id="send-btn" class="send-btn" aria-label="发送">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="pricing-bar">
+        <span>免费 10 次/天</span>
+        <span class="pricing-divider">·</span>
+        <span class="pricing-pro">无限对话 $2.99/月</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
