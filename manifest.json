@@ -1,11 +1,11 @@
 {
-  "name": "PawSpeak - 宠物对话",
-  "short_name": "PawSpeak",
+  "name": "集团周报系统",
+  "short_name": "集团周报",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#7c3aed",
-  "theme_color": "#7c3aed",
-  "description": "读懂它，不再靠猜。AI 宠物行为解读。",
+  "background_color": "#0f0f1a",
+  "theme_color": "#0f0f1a",
+  "description": "集团周报系统 - 高效汇报，数据驱动",
   "orientation": "portrait-primary",
   "icons": [
     {
