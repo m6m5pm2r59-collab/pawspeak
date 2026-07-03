@@ -236,7 +236,18 @@ body {
 
 .pricing-trial { color: var(--text-secondary); }
 
-.pricing-pro { color: var(--accent-light); font-weight: 600; }
+.pricing-clone { color: var(--accent-light); font-weight: 600; }
+
+.footer-links {
+  text-align: center;
+  padding-top: 6px;
+  font-size: 11px;
+}
+
+.footer-links a {
+  color: #8a8578;
+  text-decoration: none;
+}
 
 /* ============================================
    Typing Indicator
